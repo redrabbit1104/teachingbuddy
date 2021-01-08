@@ -1,0 +1,143 @@
+/* side_barとboardをflexboxにする */
+
+.main_wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main_wrapper:after {
+    display: block;
+    clear: both;
+}
+
+.side_footer_wrapper {
+    float: left;
+}
+
+
+/* ここからサイド画面 */
+
+.side_bar {
+    width: 30vw;
+    height: 40vh;
+    border: solid 1px;
+    padding: 5px 15px 20px 15px;
+}
+
+.login_wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-column-gap: 20px;
+    column-gap: 20px;
+    grid-row-gap: 5px;
+    row-gap: 5px;
+    height: 50px;
+    border-bottom: 2px solid rgb(91, 91, 91);
+}
+
+.school_name:hover {
+    opacity: 0.5;
+}
+
+.login {
+    align-self: end;
+    grid-column: 2/3;
+    grid-row: 1/1;
+}
+
+.login:hover {
+    opacity: 0.5;
+}
+
+.logout:hover {
+    opacity: 0.5;
+}
+
+.logout {
+    align-self: end;
+    grid-column: 2/3;
+    grid-row: 1/1;
+}
+
+.new_user {
+    align-self: end;
+    grid-column: 3/4;
+    grid-row: 1/1;
+}
+
+.new_user:hover {
+    opacity: 0.5;
+}
+
+.menu_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-column-gap: 5px;
+    column-gap: 5px;
+    grid-row-gap: 0px;
+    row-gap: 0px;
+    height: 200px;
+    padding: 5px 0 0 0;
+    background-image: url("side_bar.jpg");
+    background-size: 100% 100%;
+}
+
+.open .menu_nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    column-gap: 5px;
+    grid-row-gap: 0px;
+    row-gap: 0px;
+    height: 150px;
+    padding: 5px 0 0 0;
+    width: 130px;
+}
+
+.open .menu_wrapper {
+    display: block;
+}
+
+.page-btn,
+.menu_nav {
+    display: none;
+}
+
+.page-btn-close,
+.menu_name {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    float: left;
+}
+
+.menu_name:hover {
+    opacity: 0.5;
+}
+
+.open .page-btn {
+    display: block;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    float: left;
+}
+
+.menu_lists {
+    border-bottom: dotted 1px;
+}
+
+.menu_lists:hover {
+    opacity: 0.5;
+}
+
+
+/* ここからフッター画面 */
+
+.members {
+    width: 30vw;
+    height: 60vh;
+    border: solid 1px;
+    padding: 20px;
+}

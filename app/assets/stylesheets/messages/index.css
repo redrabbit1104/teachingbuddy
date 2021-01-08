@@ -5,3 +5,11 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
     font-family: 'Noto Sans JP', sans-serif;
 }
+
+.board {
+    width: 70vw;
+    height: 100vh;
+    border: solid 1px;
+    padding: 20px;
+    float: left;
+}
