@@ -12,14 +12,16 @@
 
 .side_footer_wrapper {
     float: left;
+    height: 100vh;
+    width: 350px;
 }
 
 
 /* ここからサイド画面 */
 
 .side_bar {
-    width: 30vw;
-    height: 40vh;
+    width: 350px;
+    height: 263px;
     border: solid 1px;
     padding: 5px 15px 20px 15px;
 }
@@ -34,6 +36,7 @@
     row-gap: 5px;
     height: 50px;
     border-bottom: 2px solid rgb(91, 91, 91);
+    cursor: pointer;
 }
 
 .school_name:hover {
@@ -81,7 +84,7 @@
     height: 200px;
     padding: 5px 0 0 0;
     background-image: url("side_bar.jpg");
-    background-size: 100% 100%;
+    background-size: 100% 100%
 }
 
 .open .menu_nav {
@@ -95,6 +98,7 @@
     height: 150px;
     padding: 5px 0 0 0;
     width: 130px;
+    cursor: pointer;
 }
 
 .open .menu_wrapper {
@@ -135,9 +139,13 @@
 
 /* ここからフッター画面 */
 
+.side_footer_wrapper {
+    height: 100vh;
+}
+
 .members {
-    width: 30vw;
-    height: 60vh;
+    width: 350px;
+    height: calc(100vh - 263px);
     border: solid 1px;
     padding: 20px;
 }

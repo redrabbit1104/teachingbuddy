@@ -7,7 +7,7 @@ body {
 }
 
 .board {
-    width: 70vw;
+    width: calc(100vw - 350px);
     height: 100vh;
     border: solid 1px;
     padding: 20px;
