@@ -23,50 +23,50 @@
     }
   </script>
     <div class="main_wrapper">
-          <div class="side_footer_wrapper">
-            <div class="side_bar">
-              <div class="login_wrapper">
-                 <div class="school_name">
-                   <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
-                 </div>
-                 <div class="login">
-                 ログイン
-                 </div>
-                 <%# <div class="logout">
-                 ログアウト
-                 </div> %>
-                 <div class="new_user">
-                 新規登録
-                 </div>
-               </div>
-               <div class="menu_wrapper">
-                  <nav class="menu_nav">      
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;新規授業
-                      </div>
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;授業エントリー
-                      </div>
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;授業一覧
-                      </div>
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;Message Board
-                      </div>
-                  </nav>
-                  <button type="button" class="page-btn" onclick="menu()">
-                    <span class="fas fa-caret-square-down"  title="メニューを開く"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
-                  </button>
-
-                  <button type="button" class="page-btn-close" onclick="menu()">
-                    <span class="fas fa-minus-square" title="メニューを閉じる"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
-                  </button>
-                </div>
+      <div class="side_footer_wrapper">
+        <div class="side_bar">
+          <div class="login_wrapper">
+            <div class="school_name">
+              <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
             </div>
-        <%= render "shared/members" %>
+            <div class="login">
+              ログイン
+            </div>
+            <%# <div class="logout">
+               ログアウト
+            </div> %>
+            <div class="regi_user">
+               新規登録
+            </div>
+          </div>
+          <div class="menu_wrapper">
+             <nav class="menu_nav">      
+                <div class="menu_lists">
+                 &nbsp;&nbsp;新規授業
+                </div>
+                <div class="menu_lists">
+                &nbsp;&nbsp;授業エントリー
+                </div>
+                <div class="menu_lists">
+                &nbsp;&nbsp;授業一覧
+                </div>
+                <div class="menu_lists">
+                &nbsp;&nbsp;Message Board
+                </div>
+             </nav>
+             <button type="button" class="page-btn" onclick="menu()">
+                <span class="fas fa-caret-square-down"  title="メニューを開く"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+             </button>
+             <button type="button" class="page-btn-close" onclick="menu()">
+                <span class="fas fa-minus-square" title="メニューを閉じる"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+             </button>
+             </div>         
+        　 </div>
+             <%= render "shared/members" %>
+    　   </div>
+        <div class="main_contents">
+        <%= yield %>
         </div>
-      <%= yield %>
-  
     </div>
   </body>
 </html>

@@ -63,13 +63,13 @@
     grid-row: 1/1;
 }
 
-.new_user {
+.regi_user {
     align-self: end;
     grid-column: 3/4;
     grid-row: 1/1;
 }
 
-.new_user:hover {
+.regi_user:hover {
     opacity: 0.5;
 }
 
@@ -148,4 +148,10 @@
     height: calc(100vh - 263px);
     border: solid 1px;
     padding: 20px;
+}
+
+.main_contents {
+    width: calc(100vw - 350px);
+    height: 100vh;
+    float: left;
 }
