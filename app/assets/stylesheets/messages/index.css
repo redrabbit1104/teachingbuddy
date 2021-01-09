@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Hanalei Fill', cursive;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.board {
+    width: calc(100vw - 350px);
+    height: 100vh;
+    border: solid 1px;
+    padding: 20px;
+    float: left;
+}

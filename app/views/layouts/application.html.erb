@@ -1,15 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=yes,initial-scale=1.0">
+    <meta name="description" content="授業のスケジュールをエントリしたり、作成して管理するアプリです">
+    <meta name="keywords" content="スケジュール,日本語学校,授業管理,伝言板">
     <title>Teachingbuddy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%# font-awesomeの導入 %>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">  
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <script language="javascript" type="text/javascript">
+  function menu() {
+    document.querySelector('.menu_wrapper').classList.toggle('open');
+    }
+  </script>
+    <div class="main_wrapper">
+          <div class="side_footer_wrapper">
+            <div class="side_bar">
+              <div class="login_wrapper">
+                 <div class="school_name">
+                   <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
+                 </div>
+                 <div class="login">
+                 ログイン
+                 </div>
+                 <%# <div class="logout">
+                 ログアウト
+                 </div> %>
+                 <div class="new_user">
+                 新規登録
+                 </div>
+               </div>
+               <div class="menu_wrapper">
+                  <nav class="menu_nav">      
+                      <div class="menu_lists">
+                      &nbsp;&nbsp;新規授業
+                      </div>
+                      <div class="menu_lists">
+                      &nbsp;&nbsp;授業エントリー
+                      </div>
+                      <div class="menu_lists">
+                      &nbsp;&nbsp;授業一覧
+                      </div>
+                      <div class="menu_lists">
+                      &nbsp;&nbsp;Message Board
+                      </div>
+                  </nav>
+                  <button type="button" class="page-btn" onclick="menu()">
+                    <span class="fas fa-caret-square-down"  title="メニューを開く"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+                  </button>
+
+                  <button type="button" class="page-btn-close" onclick="menu()">
+                    <span class="fas fa-minus-square" title="メニューを閉じる"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+                  </button>
+                </div>
+            </div>
+        <%= render "shared/members" %>
+        </div>
+      <%= yield %>
+  
+    </div>
   </body>
 </html>
