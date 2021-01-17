@@ -1,26 +1,46 @@
-<h2>Log in</h2>
+<div id="user_container">
+<%= render "shared/header"%>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="user_admin_title_wrapper">
+      <span class="user_admin_title">Teacher</span>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<%= form_with model: @user, url: user_session_path, class: 'registration-user-main', local: true do |f| %>
+<div class="form_wrap">
+    <div class="field_wrapper">
+    <div class="user1_field">
+      <div class='form_text_wrap'>
+        <label class="form_caption">メールアドレス</label>
+      </div>
+      <%= f.email_field :email, class:"input_field", id:"email", placeholder:"メールアドレス",autofocus: true %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="user2_field">
+      <div class='form_text_wrap'>
+        <label class="form_caption">パスワード</label>
+      </div>
+      <%= f.password_field :password, class:"input_field", id:"password", placeholder:"パスワード" %>
+    </div>
+    <div class="teacher_btn_wrapper">
+      <%= f.submit "Sign In", class: "login_btn" %>
+    </div>
+     <%# if devise_mapping.rememberable? %>
+      <%# <div class="field"> %>
+        <%# <%= f.check_box :remember_me %> 
+        <%# <%= f.label :remember_me %> 
+      <%# </div> %>
+    <%# <% end %> 
+     <div class="sign_up_container">
+        <p class="sign_up_with">Or sign in with</p>
+        <div class="sign_up_btns"><span class="sns_texts">Google</span></div>
+        <div class="sign_up_btns"><span class="sns_texts">Facebook</span></div>
+        <div class="sign_up_btns"><span class="sns_texts">Twitter</span></div>
+      </div>     
+
+  
+      <% end %>
   </div>
-<% end %>
+</div>
+<%= render "shared/footer" %>
+</div>
 
-<%= render "users/shared/links" %>

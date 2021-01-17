@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins, controller: {
+  devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
     registrations: 'admins/registrations'
@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-
+  get 'registrations/admins'
+  get 'registrations/users'
   get 'boards/index'
   root to: "boards#index"
 end

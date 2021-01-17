@@ -1,5 +1,18 @@
 <div calss="board_wrapper">
   <div class="board">
-  Message Board
+
+	
+  <div class="lower-message">
+	<% @users.each do |user| %>
+      <div class="users-index-item">
+        <div class="user-right">
+　　　　　　<!-- 下記のコードでユーザーを表示させています。 -->
+		<%= image_tag user.avatar.variant(resize: '80x80'), class: 'message-image' if user.avatar.attached?%>
+        </div>
+      </div>
+      <% end %>
+
+  </div>
+
   </div>
 </div>

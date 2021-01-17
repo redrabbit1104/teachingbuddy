@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,user-scalable=yes,initial-scale=1.0">
+    <meta name="description" content="授業のスケジュールをエントリしたり、作成して管理するアプリです">
+    <meta name="keywords" content="スケジュール,日本語学校,授業管理,伝言板">
+    <title>Teachingbuddy</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%# font-awesomeの導入 %>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">  
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id="regi_body">
+  <script language="javascript" type="text/javascript">
+  </script>
+  <%= render "/"%>
+    <%= yield %>
+  <%= render "shared/footer"%>
+  </body>
+</html>

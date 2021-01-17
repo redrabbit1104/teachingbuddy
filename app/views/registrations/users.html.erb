@@ -1,0 +1,19 @@
+<div class="user_admin_title_wrapper">
+  <span class="user_admin_title">新規登録</span>
+</div>
+<%# <%= form_with model: @user, url:  user_registration_path, class: 'regi_selection_form', method: :post, local: true do |f| %>
+<div class="regi_new_form">
+  <div class="option_form_wrap">
+    <div class="field_wrapper"> 
+        <div class="new_btn_wrapper">
+         <%= link_to 'メールで登録',new_user_registration_path, class: 'email_login_btn', medhod: :post %>
+        </div>
+      <div class="sns_up_container">
+        <p class="sign_up_with">Or sign up with</p>
+        <div class="sign_up_btns"><span class="sns_texts">Google</span></div>
+        <div class="sign_up_btns"><span class="sns_texts">Facebook</span></div>
+        <div class="sign_up_btns"><span class="sns_texts">Twitter</span></div>
+      </div>     
+    </div>
+  </div>
+</div>
