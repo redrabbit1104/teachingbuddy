@@ -3,8 +3,12 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  def self.all_except(user)
+    where.not(id: user)
+  end
+
   def index
-    @users = User.all
+    @users = User.all_except(current_user).piginate
   end
 
   private
