@@ -21,52 +21,108 @@
   function menu() {
     document.querySelector('.menu_wrapper').classList.toggle('open');
     }
+
+  function user_change(){
+    const admin = document.querySelector('.admin')
+    const login = document.querySelector('.login')
+    const open = document.getElementById('open_change') 
+    const close = document.getElementById('close_change') 
+    const circle_button = document.querySelector('.circle_button')
+
+    if(admin.style.display == "none" && login.style.display == "block" && open.style.display == "block"){
+      admin.style.display ="block";
+      login.style.display ="none";
+      open.style.display = "none";
+      close.style.display = "block";
+    }
+    else{
+      admin.style.display ="none";
+       login.style.display ="block";
+       open.style.display = "block";
+       close.style.display = "none";
+    }
+  }
+  window.onload = user_change;
   </script>
     <div class="main_wrapper">
-          <div class="side_footer_wrapper">
-            <div class="side_bar">
-              <div class="login_wrapper">
-                 <div class="school_name">
-                   <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
-                 </div>
-                 <div class="login">
-                 ログイン
-                 </div>
-                 <%# <div class="logout">
-                 ログアウト
-                 </div> %>
-                 <div class="new_user">
-                 新規登録
-                 </div>
-               </div>
-               <div class="menu_wrapper">
-                  <nav class="menu_nav">      
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;新規授業
-                      </div>
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;授業エントリー
-                      </div>
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;授業一覧
-                      </div>
-                      <div class="menu_lists">
-                      &nbsp;&nbsp;Message Board
-                      </div>
-                  </nav>
-                  <button type="button" class="page-btn" onclick="menu()">
-                    <span class="fas fa-caret-square-down"  title="メニューを開く"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
-                  </button>
-
-                  <button type="button" class="page-btn-close" onclick="menu()">
-                    <span class="fas fa-minus-square" title="メニューを閉じる"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
-                  </button>
-                </div>
+      <div class="side_footer_wrapper">
+        <div class="side_bar">
+          <div class="login_wrapper">
+            <div class="school_name">
+              <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
             </div>
-        <%= render "shared/members" %>
+           
+            <% unless user_signed_in? || admin_signed_in? %>
+            <div class="admin_container">
+            <%= link_to 'Sign In', new_admin_session_path, class: 'admin' %>
+            </div>
+            <% end %>
+            <% if user_signed_in? %>
+                <div class="user_name">
+                  <div class="user_hover">
+              <%= link_to image_tag(current_user.avatar.variant(resize: '30x30'),class: 'user_img' ), edit_user_registration_path(current_user.id),method: :get if current_user.avatar.attached? %><%= link_to current_user.user_name,edit_user_registration_path(current_user.id),method: :get %></div><div class="sir">&nbsp;様</div>
+                </div>
+              <div class="logout">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+              </div>
+            <% elsif admin_signed_in? %>
+              <div class="admin_name">
+              <%= link_to current_admin.admin_name, "#" %>&nbsp;様
+              </div>
+              <div class="logout">
+              <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %>
+              </div>
+            <% else %>
+              <button id="open_change" onclick="user_change()">
+                <span class="circle_button" title="教職員"></span>
+              </button>
+              <button id="close_change" onclick="user_change()">
+                <span class="circle_button" style="background-color:red" title="管理者"></span>
+              </button>
+              <div class="login_container">
+              <%= link_to 'Sign In', new_user_session_path,class: 'login' %>
+              </div>
+              <div class="regi_user">
+              <%= link_to '新規登録',registrations_users_path %>
+              </div>
+            <% end %>
+          </div>
+          <div class="menu_wrapper">
+             <nav class="menu_nav">
+              <% if admin_signed_in? %>
+                <div class="menu_lists">
+                 &nbsp;&nbsp;新規授業
+                </div>
+              <% end %>
+              <% if user_signed_in? %>
+                <div class="menu_lists">
+                &nbsp;&nbsp;授業エントリー
+                </div>
+              <% end %>
+                <div class="menu_lists">
+                &nbsp;&nbsp;授業一覧
+                </div>
+                <div class="menu_lists">
+                &nbsp;&nbsp;Message Board
+                </div>
+             </nav>
+             <button type="button" class="page-btn" onclick="menu()">
+                <span class="fas fa-caret-square-down"  title="メニューを開く"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+             </button>
+             <button type="button" class="page-btn-close" onclick="menu()">
+                <span class="fas fa-minus-square" title="メニューを閉じる"></span><h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+             </button>
+             </div>         
+          </div>
+             <%= render "shared/members" %>
         </div>
-      <%= yield %>
-  
+        <div class="main_contents">
+        <%= yield %>
+         
+        </div>
+        <%= render "shared/index_footer" %>
     </div>
+   
   </body>
+
 </html>

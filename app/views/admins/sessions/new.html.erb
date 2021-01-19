@@ -1,0 +1,31 @@
+<div id="admin_container">
+  <%= render "shared/header_admin"%>
+    <div class="user_admin_title_wrapper">
+      <span class="user_admin_title">Administrator</span>
+    </div>
+
+    <%= form_with model: @admin, url: admin_session_path, class: 'registration-main', local: true do |f| %>
+    <div class="form_wrap">
+      <div class="field_wrapper"> 
+        <div class="field">
+          <div class='form_text_wrap'>
+            <label class="form_caption">メールアドレス</label>
+          </div>
+          <%= f.email_field :email, class:"input_field", id:"email", placeholder:"メールアドレス",autofocus: true %>
+        </div>
+
+          <div class="field">
+            <div class='form_text_wrap'>
+              <label class="form_caption">パスワード</label>
+            </div>
+            <%= f.password_field :password, class:"input_field", id:"password", placeholder:"パスワード" %>
+          </div>
+          <div class="btn_wrapper">
+            <%= f.submit "Sign In", class: "login_btn" %>
+          </div>
+            <% end %>
+      </div>
+    </div>
+  <%= render "shared/footer" %>
+</div>
+

@@ -1,0 +1,65 @@
+<div id="user_container">
+  <%= render "shared/header"%>
+<div class="user_admin_title_wrapper">
+  <span class="user_admin_title">新規登録</span>
+</div>
+<%= form_with model: @user, url:  user_registration_path, class: 'regi_selection_form', method: :post, local: true do |f| %> 
+  <div class="selection_form_wrap">
+    <div class="field_wrapper"> 
+      <div class="field">
+        <div class='form_text_wrap'>
+          <label class="form_caption">ユーザーネーム</label>
+        </div>
+        <%= f.text_field :user_name, class:"input_field", id:"user_name", placeholder:"  例) user_1", maxlength:"40",autofocus: true %>
+      </div>
+       <div class="field">
+        <div class='form_text_wrap'>
+          <label class="form_caption">お名前（全角）</label>
+        </div>
+        <%= f.text_field :last_name, class:"input_field", id:"last_name", placeholder:"  例) 山田",autofocus: true %>
+        <%= f.text_field :first_name, class:"input_field", id:"first_name", placeholder:"  例) 陸太郎",autofocus: true %>
+      </div>
+      <div class="field">
+        <div class='form_text_wrap'>
+          <label class="form_caption">メールアドレス</label>
+        </div>
+        <%= f.email_field :email, class:"input_field", id:"email", placeholder:"  PC・携帯どちらでも可",autofocus: true %>
+      </div>
+      <div class="field">
+        <div class='form_text_wrap'>
+          <label class="form_caption">アバター
+        </div>
+        <div class="avatar_input_field">
+          <label class="avatar_field">
+             <span class="avatar-file">画像</span>
+            <%= f.file_field :avatar, class:"hidden", id:"avatar",autofocus: true %>
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <div class='form_text_wrap'>
+           <label class="form_caption">パスワード</label>
+        </div>
+        <%= f.password_field :password, class:"input_field", id:"password", placeholder:"  6文字以上の半角英数字" %>  
+      </div>
+      <div class="field">
+        <div class='form_text_wrap'>
+           <label class="form_caption">パスワード（確認）</label>
+        </div>
+        <%= f.password_field :password_confirmation, class:"input_field", id:"password-confirmation", placeholder:"  同じパスワードを入力して下さい" %>
+      </div>
+        <div class="btn_wrapper">
+          <%= f.submit "Sign Up", class: "login_btn" %>
+        </div>
+      
+<% end %> 
+      <div class="sign_up_container">
+        <div class="sign_up_with">Or sign in with</div>
+        <div class="sign_up_btns"><span class="sns_texts">Google</span></div>
+        <div class="sign_up_btns"><span class="sns_texts">Facebook</span></div>
+        <div class="sign_up_btns"><span class="sns_texts">Twitter</span></div>
+      </div>     
+    </div>
+  </div>
+  <%= render "shared/footer" %>
+</div>
