@@ -9,8 +9,8 @@ class BoardsController < ApplicationController
   end
 
   def create
-    Board.create(post: params[:post])
-    redirect_to action: :index
+    board = Board.create(post: params[:post])
+    render json:{ board: board }
   end
   
   private
