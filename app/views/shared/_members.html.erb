@@ -8,6 +8,6 @@
        
       </div>
     <% end %>
-    <%= paginate @users%>
+    <%= paginate @users, param_name: 'users_page' %>
   <% end %>
 </div>

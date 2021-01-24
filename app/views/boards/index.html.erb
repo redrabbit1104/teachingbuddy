@@ -1,50 +1,70 @@
 <div class="board_title">
-  <h1>Bullentin Board</h1>
+    <h1>Bullentin Board</h1>
 </div>
 
 <div class="date_today">
-  <%# 後で曜日の色を土、日の場合は変える処理をする %>
-  <%= @this_year %>年<%= @this_month %>月<%= @this_day %>日 (<span class="wday"><%= @this_wday%></span>)
+    <%# 後で曜日の色を土、日の場合は変える処理をする %>
+        <%= @this_year %>年
+            <%= @this_month %>月
+                <%= @this_day %>日 (<span class="wday">
+                        <%= @this_wday%>
+                    </span>)
 </div>
 
-<table class="table_wrapper" border="1">
-  <thead>
-    <tr>
-      <th id="board_name">Name</th>
-      <th id="board_date">Date</th>
-      <th id="board_memo">Memo</th>
-      <th id="board_edit">Edit</th>
-      <th id="board_delete">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @board.each do |board| %>
-    <tr>
-      <td><%= board.user.avatar %><%= board.user_id %></td>
-      <td><%= board.post_date %></td>
-      <td><%= board.post %></td>
-      <td>内容2</td>
-      <td>内容1</td>
-    </tr>
-    <% end %>
+<table class="table_wrapper" border="1" id="targetTable">
+    <thead>
+        <tr>
+            <th id="board_name">Name</th>
+            <th id="board_date">Date</th>
+            <th id="board_memo">Memo</th>
+            <th id="board_edit">Edit</th>
+            <th id="board_delete">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @boards.each do |board| %>
+            <tr>
+                <td>
+                    <%= image_tag(board.user.avatar.variant(resize: '30x30' )) %>
+                        <%= board.user.user_name %>
+                </td>
+                <td>
+                    <%= board.created_at.strftime('%Y年%m月%d日') %>
+                </td>
+                <td>
+                    <%= board.post %>
+                </td>
+                <td>
+                    <%= link_to '修正' , edit_board_path(board.id), method: :get, class:'#' %>
+                </td>
+
+                <td>
+                    <%= link_to '削除' , board_path(board.id), method: :delete, class:'#' %>
+                </td>
+            </tr>
+
+            <% end %>
+
+                <tr id="list">
+                </tr>
+
     </tbody>
 </table>
+<%=paginate @boards%>
 
-<section id="comment">
-  <h1>Comment</h1>
-  <%= form_with url: "/boards", method: :post, id: "board_form" do |f| %>
-    <%= raw sprintf(
-                  f.date_select(
-                    :birthday,
-                    class:'select-birth',
-                    id:"birth-date",
-                    use_month_numbers: true,
-                    prompt:'--',
-                    start_year: 1930,
-                    end_year: (Time.now.year - 5),
-                    date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-    <%= f.text_field :post %>
-    <%= f.submit '投稿する', id: "submit" %>
-  <% end %>
-</section>
+
+    <% if user_signed_in? %>
+        <section id="comment">
+            <div class="comment_wrapper">
+                <h1>Leave a comment</h1>
+            </div>
+            <%# request.path_infoで現在のパス情報を取得、@board.idにはset_boardメソッドで定義した@boardのid情報が入る %>
+                <%=form_with url: "/boards" , method: :post, id: "form" do |form| %>
+                    <%= form.text_field :post, id: "post" , placeholder:"コメントを入力してください",maxlength:"46",autofocus: true
+                        %>
+                        <%= form.submit ' 投稿する' , id: "submit" %>
+                            <% end %>
+                                <%= link_to '更新する' ,root_path,id:"refresh" %>
+        </section>
+
+        <% end %>

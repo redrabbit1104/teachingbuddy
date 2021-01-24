@@ -49,13 +49,10 @@ ActiveRecord::Schema.define(version: 2021_01_18_123403) do
   end
 
   create_table "boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "post", null: false
-    t.date "post_date", null: false
-    t.bigint "user_id", null: false
-    t.bigint "admin_id", null: false
+    t.text "post"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["admin_id"], name: "index_boards_on_admin_id"
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
@@ -75,6 +72,5 @@ ActiveRecord::Schema.define(version: 2021_01_18_123403) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "boards", "admins"
   add_foreign_key "boards", "users"
 end

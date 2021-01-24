@@ -1,4 +1,13 @@
         $fcolor: rgb(247, 158, 158);
+        .body {
+            height: 1000px;
+        }
+        
+        .main_wrapper {
+            min-height: 100%;
+            display: block;
+        }
+        
         .header_wrapper {
             width: 100vw;
             height: 100px;
@@ -230,46 +239,6 @@
             text-align: center;
         }
         
-        .index_footer {
-            height: 30px;
-            border-top: 2px solid rgb(91, 91, 91);
-            position: static;
-            margin-top: 0px;
-            height: 5%;
-            width: 100%;
-            .footer_text {
-                text-align: center;
-                padding-top: 10px;
-                font-weight: 600;
-                #T {
-                    color: red;
-                }
-                #B {
-                    color: red;
-                }
-            }
-        }
-        
-        .footer {
-            height: 30px;
-            border-top: 2px solid rgb(91, 91, 91);
-            position: static;
-            margin-top: 145px;
-            height: 5%;
-            width: 100%;
-            .footer_text {
-                text-align: center;
-                padding-top: 10px;
-                font-weight: 600;
-                #T {
-                    color: red;
-                }
-                #B {
-                    color: red;
-                }
-            }
-        }
-        
         #user_container {
             height: 800px;
         }
@@ -326,7 +295,6 @@
                 width: 150px;
                 margin: 20px auto;
                 text-align: center;
-                .sns_texts {}
             }
         }
         
@@ -366,12 +334,12 @@
         .members {
             display: grid;
             grid-template-columns: 50px 50px 50px 50px 50px 50px;
-            grid-template-rows: 20px 50px 50px 50px 50px;
+            grid-template-rows: 20px 50px 50px;
             grid-column-gap: 15px;
             column-gap: 15px;
             grid-row-gap: 5px;
             row-gap: 5px;
-            height: calc(100vh - 270px);
+            height: calc(100% - 270px);
             width: 390px;
             padding-left: 5px;
             overflow: ellipse;
