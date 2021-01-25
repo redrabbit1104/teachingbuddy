@@ -9,5 +9,5 @@ class Admin < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :schedule_admins
   has_many :schedules, through: :schedule_admins
-  has_many :borders
+  has_many :boards
 end

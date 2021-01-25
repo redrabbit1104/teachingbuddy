@@ -1,0 +1,2 @@
+class SdatesController < ApplicationController
+end

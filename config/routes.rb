@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root to: "boards#index"
+  resources :boards
+ 
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
@@ -12,6 +16,5 @@ Rails.application.routes.draw do
 
   get 'registrations/admins'
   get 'registrations/users'
-  get 'boards/index'
-  root to: "boards#index"
+
 end
