@@ -177,6 +177,10 @@
   opacity: 0.5;
 }
 
+#edit_delete2:hover {
+  opacity: 0.5;
+}
+
 .index_footer {
   height: 30px;
   position: absolute;

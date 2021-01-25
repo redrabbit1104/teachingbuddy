@@ -35,11 +35,11 @@
                     <%= board.post %>
                 </td>
                 <td>
-                    <%= link_to '修正' , edit_board_path(board.id), method: :get, class:'#' %>
+                    <%= link_to '修正' , edit_board_path(board.id), method: :get, id:'edit_submit' %>
                 </td>
 
                 <td>
-                    <%= link_to '削除' , board_path(board.id), method: :delete, class:'#' %>
+                    <%= link_to '削除' , board_path(board.id), method: :delete, id:'edit_delete2' %>
                 </td>
             </tr>
 
