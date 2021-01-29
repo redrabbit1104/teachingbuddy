@@ -60,8 +60,9 @@
                             <% if user_signed_in? %>
                                 <div class="user_name">
                                     <div class="user_hover">
-                                        <%= link_to image_tag(current_user.avatar.variant(resize: '30x30' ),class: 'user_img' ),
-                      edit_user_registration_path(current_user.id),method: :get if current_user.avatar.attached? %>
+                                        <%= link_to image_tag(current_user.avatar.variant(resize: '30x30'
+                                            ),class: 'user_img' ), edit_user_registration_path(current_user.id),method:
+                                            :get if current_user.avatar.attached? %>
                                             <%= link_to current_user.user_name,edit_user_registration_path(current_user.id),method: :get %>
                                     </div>
                                     <div class="sir">&nbsp;様</div>
@@ -78,11 +79,11 @@
                                     </div>
                                     <% else %>
                                         <button id="open_change" onclick="user_change()">
-                      <span class="circle_button" title="教職員"></span>
-                    </button>
+                                            <span class="circle_button" title="教職員"></span>
+                                        </button>
                                         <button id="close_change" onclick="user_change()">
-                      <span class="circle_button" style="background-color:red" title="管理者"></span>
-                    </button>
+                                            <span class="circle_button" style="background-color:red" title="管理者"></span>
+                                        </button>
                                         <div class="login_container">
                                             <%= link_to 'Sign In' , new_user_session_path,class: 'login' %>
                                         </div>
@@ -104,7 +105,7 @@
                                     </div>
                                     <% end %>
                                         <div class="menu_lists">
-                                            &nbsp;&nbsp;授業一覧
+                                        &nbsp;&nbsp;<%= link_to '授業一覧' ,sdates_path %>
                                         </div>
                                         <div class="menu_lists">
                                             &nbsp;
@@ -112,13 +113,11 @@
                                         </div>
                     </nav>
                     <button type="button" class="page-btn" onclick="menu()">
-            <span class="fas fa-caret-square-down" title="メニューを開く"></span>
-            <h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
-          </button>
+                        <h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+                    </button>
                     <button type="button" class="page-btn-close" onclick="menu()">
-            <span class="fas fa-minus-square" title="メニューを閉じる"></span>
-            <h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
-          </button>
+                        <h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>
+                    </button>
                 </div>
             </div>
             <%= render "shared/members" %>
