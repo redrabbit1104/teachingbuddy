@@ -2,6 +2,8 @@ class SdatesController < ApplicationController
   def index
     users = User.where.not(id: current_user)
     @users = users.page(params[:users_page]).per(6)
+    @sdate_all = Sdate.select(:sdate)
+    @schedule_all = Schedule.all
 
     date_today
   end

@@ -206,27 +206,29 @@
   color: red;
 }
 
-.footer {
+.index_footer {
+  position: relative;
+}
+
+.index_footer .footer {
   display: block;
   width: 100vw;
-  bottom: 0;
   height: 100px;
-  margin-top: 145px;
   border-top: 1px solid;
   height: 5%;
 }
 
-.footer .footer_text {
+.index_footer .footer .footer_text {
   text-align: center;
   padding-top: 10px;
   font-weight: 600;
 }
 
-.footer .footer_text #T {
+.index_footer .footer .footer_text #T {
   color: red;
 }
 
-.footer .footer_text #B {
+.index_footer .footer .footer_text #B {
   color: red;
 }
 /*# sourceMappingURL=boards.css.map */

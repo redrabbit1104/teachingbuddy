@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_161827) do
+ActiveRecord::Schema.define(version: 2021_01_29_134431) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -56,10 +56,21 @@ ActiveRecord::Schema.define(version: 2021_01_25_161827) do
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
+  create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "subject"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "sdate_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sdate_id"], name: "index_schedules_on_sdate_id"
+  end
+
   create_table "sdates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "syear"
-    t.date "smonth"
-    t.date "sday"
+    t.date "sdate"
+    t.integer "syear"
+    t.integer "smonth"
+    t.integer "sday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -81,4 +92,5 @@ ActiveRecord::Schema.define(version: 2021_01_25_161827) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "boards", "users"
+  add_foreign_key "schedules", "sdates"
 end

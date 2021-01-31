@@ -96,7 +96,7 @@
                     <nav class="menu_nav">
                         <% if admin_signed_in? %>
                             <div class="menu_lists">
-                                &nbsp;&nbsp;新規授業
+                                &nbsp;&nbsp;<%= link_to '新規授業登録' ,new_schedule_path %>
                             </div>
                             <% end %>
                                 <% if user_signed_in? %>
