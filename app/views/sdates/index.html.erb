@@ -99,14 +99,9 @@
             <% @week_period6.each do |period| %> 
             <% if x == (period -1).wday %>
             <span id="period_date">
-             <%= period.day %>334日 
+             <%= period.day %>112日
             </span>
-                
-            <% @sdate_all.each do |kdate| %>
-                <% if period == kdate.sdate %>
-                <%= @schedule_all %>
-                <% end %>
-                <% end %>
+   
 
             <% end %>
             <% end %>
