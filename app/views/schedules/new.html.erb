@@ -1,0 +1,16 @@
+<h1>授業新規登録</h1>
+<%= form_with model: @sdate_schedule, url: schedules_path, class: '#', local: true do |f| %>
+<%= f.select :syear, (Time.zone.now.year - 100)..(Time.zone.now.year + 1) %>
+<%= f.select :smonth, (1..12) %>
+<%= f.select :sday,(1..31) %>
+<%= raw sprintf(
+  f.date_select(
+    :sdate,
+    {:discard_year => true,:use_month_numbers => true,date_separator: '%s'},
+    class:'select-birth',
+    id:"birth-date",
+    ),
+  "<p> 月 </p>") + "<p> 日 </p>" %>
+   <%= f.submit "新規登録" ,class:"#" %>
+
+<% end %>

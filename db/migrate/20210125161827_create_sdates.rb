@@ -1,9 +1,10 @@
 class CreateSdates < ActiveRecord::Migration[6.0]
   def change
     create_table :sdates do |t|
-      t.date :syear
-      t.date :smonth
-      t.date :sday
+      t.date :sdate 
+      t.integer :syear
+      t.integer :smonth
+      t.integer :sday
       t.timestamps
     end
   end

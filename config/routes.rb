@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "boards#index"
+  resources :sdates
   resources :boards
+  resources :schedules
  
 
   devise_for :admins, controllers: {
