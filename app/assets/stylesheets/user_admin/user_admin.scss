@@ -240,7 +240,12 @@
         }
         
         #user_container {
-            height: 800px;
+            height: 750px;
+        }
+        
+        #user_regi_container {
+            position: relative;
+            height: 1250px;
         }
         
         .regi_selection_wrap {
@@ -252,7 +257,7 @@
         
         .regi_selection_form {
             width: 50vw;
-            height: 850px;
+            height: 1000px;
             margin: 0 auto;
             padding-top: 10px;
             box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);

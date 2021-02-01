@@ -5,7 +5,7 @@
     </div>
 
     <%= form_with model: @admin, url: admin_session_path, class: 'registration-main', local: true do |f| %>
-    <div class="form_wrap">
+    <div class="admin_form_wrap">
       <div class="field_wrapper"> 
         <div class="field">
           <div class='form_text_wrap'>
@@ -26,6 +26,7 @@
             <% end %>
       </div>
     </div>
-  <%= render "shared/footer" %>
+
 </div>
+<%= render "shared/admin_signin_footer" %>
 
