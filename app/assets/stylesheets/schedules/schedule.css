@@ -1,0 +1,25 @@
+.schedule_footer {
+  height: 30px;
+  position: relative;
+  bottom: 0px;
+  margin-top: 0px;
+  height: 30px;
+  width: 100%;
+  float: left;
+  border-top: 1px solid;
+}
+
+.schedule_footer .schedule_footer_text {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.schedule_footer .schedule_footer_text #T {
+  color: red;
+}
+
+.schedule_footer .schedule_footer_text #B {
+  color: red;
+}
+/*# sourceMappingURL=schedule.css.map */
