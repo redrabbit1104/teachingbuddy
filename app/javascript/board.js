@@ -1,5 +1,6 @@
 function board() {
     const submit = document.getElementById("submit");
+    if (!submit) { return false; }
     submit.addEventListener("click", (e) => {
         const formData = new FormData(document.getElementById("form"));
         const XHR = new XMLHttpRequest();
@@ -22,7 +23,7 @@ function board() {
                 <td></td>
                 `;
             list.insertAdjacentHTML("afterend", HTML);
-            formText.value = "";
+            formText.value = " ";
         };
         e.preventDefault();
     });
