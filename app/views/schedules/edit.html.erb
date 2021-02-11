@@ -1,15 +1,28 @@
-<div class="board_title">
-    <h1>Schedule</h1>
+<div class="edit_title">
+    <h1>Edit Schedule</h1>
 </div>
 
-<div class="date_today">
-    <%# 後で曜日の色を土、日の場合は変える処理をする %>
-        <%= @this_year %>年
-            <%= @this_month %>月
-                <%= @this_day %>日 (<span class="wday">
-            <%= @this_wday%>
-          </span>)
+<div class="edit_form_wrapper">
+<%= form_with model: @set_schedule, class: 'schedule_form', local: true do |f| %>
+      <div class="input-wrapper">
+      <span class="input-subject">Subject</span><%= f.text_field :subject, class:"schedule-input text", maxlength:"20", autofocus:"true" %>
+      </div>
+      <span class="input-subject date">Date</span><%= @set_schedule.sdate.sdate %>
+      <div class="input-wrapper">
+        <div class="schedule-input-time">
+        <span class="input-start">Start Time</span><span id="edit_start_time"><%= f.time_select :start_time%></span>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <div class="schedule-input-time">
+        <span class="input-end">End Time</span><span id="edit_end_time"><%= f.time_select :end_time%></span>
+        </div>
+      </div>
+      <div class="edit_delete_wrapper">
+         <%= f.submit "Edit" ,class:"schedule-input",id:"submit-btn"%>
+         <%= link_to 'Delete', schedule_path(@set_schedule.id), method: :delete,class:"schedule-input",id:"submit-btn" %>
+      </div>
+ <% end %>
 </div>
 
-
-<%= link_to '戻る' ,root_path,id:"back" %>
+<%= link_to '戻る' ,new_schedule_path,id:"back" %>

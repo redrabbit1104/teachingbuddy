@@ -1,0 +1,279 @@
+$mColor: rgb(241, 119, 78);
+.schedule_title {
+    text-align: center;
+    color: $mColor;
+    font-size: 30px;
+    border-bottom: solid 2px;
+    width: 300px;
+    margin: 30px auto 3px auto;
+}
+
+input[type="date"] {
+    width: 150px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.sdate_name {
+    height: 40px;
+    th {
+        padding-top: 10px;
+    }
+}
+
+.date_today {
+    &.schedule {
+        margin-bottom: 70px;
+        font-size: 40px;
+    }
+}
+
+.input-wrapper {
+    display: flex;
+}
+
+#choose-date {
+    margin-left: 94px;
+}
+
+.input-subject {
+    margin-right: 38px;
+    &.date {
+        margin-right: 62px;
+    }
+}
+
+.input-start {
+    margin-right: 15px;
+    margin-top: 5px;
+    height: 20px;
+    display: inline-block;
+    transform: translate(0, 3px)
+}
+
+.input-end {
+    margin-right: 23px;
+    margin-top: 5px;
+    height: 20px;
+    display: inline-block;
+    transform: translate(0, 3px)
+}
+
+.schedule-input {
+    display: block;
+    width: 320px;
+    margin-bottom: 10px;
+    &.text {
+        background-color: white;
+        border-radius: 5px;
+        padding-left: 10px;
+        color: black;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.schedule-input-time {
+    display: block;
+    margin-bottom: 13px;
+}
+
+.form_wrapper {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    height: 200px;
+    width: 350px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+#schedule_table {
+    margin: auto;
+    width: 1200px;
+    height: 1000px;
+    & tr {
+        border: 1px solid;
+        & th {
+            width: 171.4px;
+            border: 1px solid;
+            text-align: center;
+            & #sat {
+                color: rgb(31, 38, 235);
+            }
+            & #sun {
+                color: rgb(245, 13, 13);
+            }
+        }
+        & td {
+            border: 1px solid;
+            & #period_date {
+                display: inline-block;
+                padding: 5px 0 0 10px;
+            }
+        }
+        & .sdate_name {
+            width: 100px;
+        }
+    }
+}
+
+.display-schedule {
+    display: inline-block;
+    margin-top: 7px;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.display-schedule-wrapper {
+    position: relative;
+    &:hover+.specify-schedule {
+        display: block;
+    }
+}
+
+.specify-schedule {
+    margin-left: 20px;
+    text-align: center;
+    display: none;
+    position: relative;
+    width: 115px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #33cc99;
+    color: #fff;
+}
+
+.schedule-button {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: rgb(241, 119, 78);
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+}
+
+.edit_form_wrapper {
+    margin-top: 50px;
+    height: 200px;
+    width: 350px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.edit_title {
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+#back {
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 5px;
+    transition: color 1s;
+    box-shadow: 2px 2px 3px;
+    margin: 30px auto;
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
+
+#submit-btn {
+    transition: color 1s;
+    border-radius: 5px;
+    border: 1px solid;
+    text-align: center;
+    width: 80px;
+    color: black;
+    background-color: white;
+    margin-right: 10px;
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
+
+.edit_delete_wrapper {
+    display: flex;
+}
+
+#edit_start_time,
+#edit_end_time {
+    display: inline-block;
+    height: 25px;
+    width: 60px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding-left: 5px;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.schedule-row {
+    height: 250px;
+    max-height: 250px;
+}
+
+.date_next {
+    margin: auto;
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #4ed19a;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    ;
+    &:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+    &>a {
+        padding-top: 5px;
+        display: inline-block;
+    }
+}
+
+.date_previous {
+    margin: auto;
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #4ed19a;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    ;
+    &:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+    &>a {
+        padding-top: 5px;
+        display: inline-block;
+    }
+}

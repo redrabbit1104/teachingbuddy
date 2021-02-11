@@ -5,11 +5,12 @@
 <div class="schedlues_wrapper">
   <div class="new_schedule_wrapper">
   <div class="date_today schedule">
-      <%= @this_year %>年<%= @this_month %>月
-      <div class="date_next">
-  <%= link_to "#{@this_month+1}月へ", new_nextschedule_path, method: :get %>
+      <% if @this_year == Time.current.next_month.year %><%= @this_year %><% else %><%= (@this_year + 1) %><% end %>年<%= @next_month %>月
+      <div class="date_previous">
+      <%= link_to "#{@this_month}月へ戻る", new_schedule_path, method: :get %>
+      </div>
   </div>
-  </div>
+ 
 
   <table border="1" id="schedule_table">
       <thead>
@@ -25,7 +26,7 @@
       </thead>
 
       <div class="form_wrapper">
-      <%= form_with model: @sdate_schedule, url: schedules_path, class: 'schedule_form', local: true do |f| %>
+      <%= form_with model: @sdate_schedule, url: nextschedules_path, class: 'schedule_form', local: true do |f| %>
             <div class="input-wrapper">
             <span class="input-subject">Subject</span><%= f.text_field :subject, class:"schedule-input text", placeholder:"講座名を入力してください", maxlength:"20", autofocus:"true" %>
             </div>
@@ -43,9 +44,9 @@
             <%= f.submit "Submit" ,class:"schedule-input",id:"submit-btn"%>
        <% end %>
       </div>
-      
+
       <tbody>
-        <% if Random.rand(@week_period).month == @this_month %>
+        <% if Random.rand(@week_period).month == @next_month %>
           <tr>
             <% 7.times do |x| %>
               <td class="schedule-row">
@@ -69,7 +70,7 @@
         <% end %>
         
 
-        <% if Random.rand(@week_period2).month == @this_month %>
+        <% if Random.rand(@week_period2).month == @next_month %>
           <tr>
           <% 7.times do |x| %>
               <td class="schedule-row">
@@ -93,7 +94,7 @@
           </tr>
          <% end %>
 
-        <% if Random.rand(@week_period3).month == @this_month %>
+        <% if Random.rand(@week_period3).month == @next_month %>
           <tr>
           <% 7.times do |x| %>
               <td class="schedule-row">
@@ -117,7 +118,7 @@
           </tr>
         <% end %>
 
-        <% if Random.rand(@week_period4).month == @this_month %>
+        <% if Random.rand(@week_period4).month == @next_month %>
           <tr>
           <% 7.times do |x| %>
               <td class="schedule-row">
@@ -142,7 +143,7 @@
         <% end %>
           
 
-        <% if Random.rand(@week_period5).month == @this_month %>
+        <% if Random.rand(@week_period5).month == @next_month %>
           <tr>
           <% 7.times do |x| %>
               <td class="schedule-row">
@@ -166,10 +167,10 @@
            </tr>
         <% end %>
 
-      
+       
           <tr>
           <% 7.times do |x| %>
-            <% if Random.rand(@week_period6).month == @this_month %>
+            <% if Random.rand(@week_period6).month == @next_month %>
               <td class="schedule-row">
               <% @week_period6.each do |period| %>
               <% if x == (period -1).wday %>

@@ -68,9 +68,6 @@ ActiveRecord::Schema.define(version: 2021_01_29_134431) do
 
   create_table "sdates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "sdate"
-    t.integer "syear"
-    t.integer "smonth"
-    t.integer "sday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
