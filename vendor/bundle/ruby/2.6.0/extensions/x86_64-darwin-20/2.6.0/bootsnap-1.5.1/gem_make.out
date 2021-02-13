@@ -1,0 +1,15 @@
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+/Users/redrabbit/.rbenv/versions/2.6.3/bin/ruby -I /Users/redrabbit/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20210213-47923-1kd1q5k.rb extconf.rb
+creating Makefile
+
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.5.1/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20210213-47923-1ozdhn0/bootsnap

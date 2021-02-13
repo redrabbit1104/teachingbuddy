@@ -1,0 +1,15 @@
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/redrabbit/.rbenv/versions/2.6.3/bin/ruby -I /Users/redrabbit/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20210213-47923-1xixxu3.rb extconf.rb
+creating Makefile
+
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/redrabbit/TechCamp/projects/teachingbuddy/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20210213-47923-tkiic1/skiptrace/internal
