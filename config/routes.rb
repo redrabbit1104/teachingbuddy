@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: "boards#index" 
   resources :sdates
   resources :boards
-  resources :schedules
+  resources :schedules do
+    resources :checks, only: :create
+  end
   resources :nextschedules
  
 

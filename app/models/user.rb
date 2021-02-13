@@ -11,6 +11,6 @@ class User < ApplicationRecord
   has_many :schedule_users
   has_many :schedules, through: :schedule_users
   has_many :boards
-  has_one :check
+  has_many :checks
 
 end
