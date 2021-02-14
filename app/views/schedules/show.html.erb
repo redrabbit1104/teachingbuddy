@@ -1,2 +1,29 @@
-<h1>授業詳細</h1>
-<%= @set_schedule.sdate_id %>
+<div class="edit_title">
+    <h1>Show Schedule</h1>
+</div>
+
+<div class="edit_form_wrapper">
+
+      <div class="input-wrapper">
+      <span class="input-subject">Subject</span><%= @set_schedule.subject %>
+      </div>
+      <span class="input-subject date">Date</span><%= @set_schedule.sdate.sdate %>
+      <div class="input-wrapper">
+        <div class="schedule-input-time">
+        <span class="input-start">Start Time</span><span id="edit_start_time"><%= @set_schedule.start_time.to_s(:time) %></span>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <div class="schedule-input-time">
+        <span class="input-end">End Time</span><span id="edit_end_time"><%= @set_schedule.end_time.to_s(:time) %></span>
+        </div>
+      </div>
+ <%= form_with model: @set_schedule, class: 'schedule_form', local: true do |f| %>
+      <div class="edit_delete_wrapper">
+         <%= f.check_box 'freezeflag', {}, true, false %>
+         <%= f.submit "Edit" ,class:"schedule-input",id:"submit-btn"%>
+      </div>
+ <% end %>
+</div>
+
+<%= link_to '戻る' ,schedules_path,id:"back" %>
