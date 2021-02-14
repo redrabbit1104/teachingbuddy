@@ -38,7 +38,7 @@
 
                     <% @schedule_all.each do |schedule| %>
                       <% if period == schedule.sdate.sdate %>
-                        <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, edit_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
+                        <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
                         <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %></div>
                       <% end %>
                     <% end %>
@@ -62,7 +62,7 @@
 
             <% @schedule_all.each do |schedule| %>
                 <% if period == schedule.sdate.sdate %>
-                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, edit_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
+                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
                 <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %></div>
                 <% end %>
                 <% end %>
@@ -86,7 +86,7 @@
 
             <% @schedule_all.each do |schedule| %>
                 <% if period == schedule.sdate.sdate %>
-                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, edit_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
+                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
                 <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %></div>
                 <% end %>
                 <% end %>
@@ -110,7 +110,7 @@
 
             <% @schedule_all.each do |schedule| %>
                 <% if period == schedule.sdate.sdate %>
-                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, edit_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
+                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
                 <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %></div>
                 <% end %>
                 <% end %>
@@ -135,7 +135,7 @@
 
             <% @schedule_all.each do |schedule| %>
                 <% if period == schedule.sdate.sdate %>
-                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, edit_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
+                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
                 <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %></div>
                 <% end %>
                 <% end %>
@@ -160,7 +160,7 @@
 
             <% @schedule_all.each do |schedule| %>
                 <% if period == schedule.sdate.sdate %>
-                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, edit_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
+                <div class="display-schedule-wrapper"><button class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %></div>
                 <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %></div>
                 <% end %>
                 <% end %>
