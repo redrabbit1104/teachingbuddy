@@ -1,14 +1,16 @@
 class NextschedulesController < ApplicationController
   layout 'registration'
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_check, only: [:show]
 
   def index
     users = User.where.not(id: current_user)
     @users = users.page(params[:users_page]).per(6)
     @sdate_all = Sdate.all
     @schedule_all = Schedule.all
-    
-    date_today
+    @checks_all = Check.where(user_id: current_user.id).page(params[:page]).per(3) if user_signed_in?
+
+    date_next_today
   end
 
   def new
@@ -16,7 +18,14 @@ class NextschedulesController < ApplicationController
     @sdate_all = Sdate.all
     @schedule_all = Schedule.all
   
-    date_today
+    date_next_today
+  end
+
+  def show
+    @check = Check.new
+    @checks = @set_schedule.checks.includes(:user_name)
+    @sdate = Sdate.all
+    get_check_schedule_user
   end
 
   def update
@@ -37,6 +46,10 @@ class NextschedulesController < ApplicationController
 
   private
 
+def get_check_schedule_user
+  @get_checked_schedule_users = Check.where(schedule_id: params[:id], check: 1).pluck(:user_id)
+end
+
 def schedule_params
   params.require(:sdate_schedule).permit(:subject, :start_time, :end_time, :sdate)
 end
@@ -45,11 +58,22 @@ def edit_schedule_params
   params.require(:schedule).permit(:subject, :start_time, :end_time)
 end
 
+#@set_checkが:idパラメーターを渡すか、空の容器なのかによって@set_checkの値を分岐させる。
+def set_check
+  #showの段階ではparams[:id]はshcedule_id値。現在のユーザーidがcheckテーブルのuser_idと同じであれば更新処理のためのテーブル情報を渡す。
+    if current_user.id == Check.where(schedule_id: params[:id], user_id: current_user.id).pluck(:user_id)[0]
+      @set_check = Check.find_by(params[:id])
+  #現在のユーザーidがcheckテーブルに存在しなければ、新規エントリとして空の容器を用意。
+    else
+      @set_check = Check.new
+    end
+end
+
 def set_schedule
   @set_schedule = Schedule.find(params[:id])
 end
 
-def date_today
+def date_next_today
   @now = Date.today
   @wday_jan = ["月","火","水","木","金","土","日"]
   @this_year = @now.year

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
   has_many :messages, dependent: :destroy
   has_many :boards
+  has_one :schedule
   has_many :checks
-
+ 
 end

@@ -9,12 +9,14 @@
     <meta name="keywords" content="スケジュール,日本語学校,授業管理,伝言板">
     <title>Teachingbuddy</title>
     <%= csrf_meta_tags %>
-        <%= csp_meta_tag %>
-            <%# font-awesomeの導入 %>
-                <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-                <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
-                <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> 'reload' %>
-                    <%= javascript_pack_tag 'application' %>
+    <%= csp_meta_tag %>
+    <%# font-awesomeの導入 %>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous">
+    </script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> 'reload' %>
+    <%= javascript_pack_tag 'application' %>
 </head>
 
 <body>
@@ -53,64 +55,67 @@
                     </div>
 
                     <% unless user_signed_in? || admin_signed_in? %>
-                        <div class="admin_container">
-                            <%= link_to 'Sign In' , new_admin_session_path, class: 'admin' %>
-                        </div>
-                        <% end %>
-                            <% if user_signed_in? %>
-                                <div class="user_name">
-                                    <div class="user_hover">
-                                        <%= link_to image_tag(current_user.avatar.variant(resize: '30x30'
+                    <div class="admin_container">
+                        <%= link_to 'Sign In' , new_admin_session_path, class: 'admin' %>
+                    </div>
+                    <% end %>
+                    <% if user_signed_in? %>
+                    <div class="user_name">
+                        <div class="user_hover">
+                            <%= link_to image_tag(current_user.avatar.variant(resize: '30x30'
                                             ),class: 'user_img' ), edit_user_registration_path(current_user.id),method:
                                             :get if current_user.avatar.attached? %>
-                                            <%= link_to current_user.user_name,edit_user_registration_path(current_user.id),method: :get %>
-                                    </div>
-                                    <div class="sir">&nbsp;様</div>
-                                </div>
-                                <div class="logout">
-                                    <%= link_to 'Sign Out' , destroy_user_session_path, method: :delete %>
-                                </div>
-                                <% elsif admin_signed_in? %>
-                                    <div class="admin_name">
-                                        <%= link_to current_admin.admin_name, "#" %>&nbsp;様
-                                    </div>
-                                    <div class="logout">
-                                        <%= link_to 'Sign Out' , destroy_admin_session_path, method: :delete %>
-                                    </div>
-                                    <% else %>
-                                        <button id="open_change" onclick="user_change()">
-                                            <span class="circle_button" title="教職員"></span>
-                                        </button>
-                                        <button id="close_change" onclick="user_change()">
-                                            <span class="circle_button" style="background-color:red" title="管理者"></span>
-                                        </button>
-                                        <div class="login_container">
-                                            <%= link_to 'Sign In' , new_user_session_path,class: 'login' %>
-                                        </div>
-                                        <div class="regi_user">
-                                            <%= link_to '新規登録' ,registrations_users_path %>
-                                        </div>
-                                        <% end %>
+                            <%= link_to current_user.user_name,edit_user_registration_path(current_user.id),method: :get %>
+                        </div>
+                        <div class="sir">&nbsp;様</div>
+                    </div>
+                    <div class="logout">
+                        <%= link_to 'Sign Out' , destroy_user_session_path, method: :delete %>
+                    </div>
+                    <% elsif admin_signed_in? %>
+                    <div class="admin_name">
+                        <%= link_to current_admin.admin_name, "#" %>&nbsp;様
+                    </div>
+                    <div class="logout">
+                        <%= link_to 'Sign Out' , destroy_admin_session_path, method: :delete %>
+                    </div>
+                    <% else %>
+                    <button id="open_change" onclick="user_change()">
+                        <span class="circle_button" title="教職員"></span>
+                    </button>
+                    <button id="close_change" onclick="user_change()">
+                        <span class="circle_button" style="background-color:red" title="管理者"></span>
+                    </button>
+                    <div class="login_container">
+                        <%= link_to 'Sign In' , new_user_session_path,class: 'login' %>
+                    </div>
+                    <div class="regi_user">
+                        <%= link_to '新規登録' ,registrations_users_path %>
+                    </div>
+                    <% end %>
                 </div>
                 <div class="menu_wrapper">
                     <nav class="menu_nav">
+                        <div class="menu_lists">
+                            &nbsp;&nbsp;<%= link_to '授業一覧' ,confirmedschedules_path %>
+                        </div>
                         <% if admin_signed_in? %>
-                            <div class="menu_lists">
-                                &nbsp;&nbsp;<%= link_to '新規授業登録' ,new_schedule_path %>
-                            </div>
-                            <% end %>
-                                <% if user_signed_in? %>
-                                    <div class="menu_lists">
-                                        &nbsp;&nbsp;授業エントリー
-                                    </div>
-                                    <% end %>
-                                        <div class="menu_lists">
-                                        &nbsp;&nbsp;<%= link_to '授業一覧' ,schedules_path %>
-                                        </div>
-                                        <div class="menu_lists">
-                                            &nbsp;
-                                            <%= link_to 'Bullentin Board' , boards_path %>
-                                        </div>
+                        <div class="menu_lists">
+                            &nbsp;&nbsp;<%= link_to '新規授業登録' ,new_schedule_path %>
+                        </div>
+                        <div class="menu_lists">
+                            &nbsp;&nbsp;<%= link_to '授業承認' ,schedules_path %>
+                        </div>
+                        <% end %>
+                        <% if user_signed_in? %>
+                        <div class="menu_lists">
+                            &nbsp;&nbsp;<%= link_to 'エントリー' ,schedules_path %>
+                        </div>
+                        <% end %>
+                        <div class="menu_lists">
+                            &nbsp;
+                            <%= link_to 'Bullentin Board' , boards_path %>
+                        </div>
                     </nav>
                     <button type="button" class="page-btn" onclick="menu()">
                         <h1 class="menu_name" style="font-weight:bold;">&nbsp;&nbsp;Menu&nbsp;</h1>

@@ -2,26 +2,13 @@
   <h1>Schedule Board</h1>
 </div>
 
-<% if user_signed_in? %>
-<div>Checked Schedule</div>
-<% @checks_all.each do |display_checked| %>
-<%= display_checked.schedule.sdate.sdate %>&nbsp;&nbsp;
-<%= display_checked.schedule.start_time.to_s(:time) %>〜
-<%= display_checked.schedule.end_time.to_s(:time) %>
-&nbsp;&nbsp;
-<button class="schedule-button"></button>
-<%= link_to display_checked.schedule.subject, schedule_path(display_checked.schedule.id), target: "_new",class: "display-schedule",method: :get %>
-<br>
-<% end %>
-<%=paginate @checks_all%>
-<% end %>
 
 <div class="schedlues_wrapper">
   <div class="new_schedule_wrapper">
     <div class="date_today">
       <%= @this_year %>年<%= @this_month %>月
       <div class="date_next">
-        <%= link_to "#{@this_month+1}月へ", nextschedules_path, method: :get %>
+        <%= link_to "#{@this_month+1}月へ", new_confirmedschedule_path, method: :get %>
       </div>
     </div>
 
@@ -40,7 +27,7 @@
         </tr>
       </thead>
       <tbody>
-        <% if Random.rand(@week_period).month == @this_month %>
+
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -53,11 +40,7 @@
             <% @schedule_all.each do |schedule| %>
             <% if period == schedule.sdate.sdate %>
             <div class="display-schedule-wrapper"><button class="schedule-button"></button>
-              <% if user_signed_in? %>
-              <%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% else %>
-              <%= link_to schedule.subject, preview_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% end %>
+              <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
             </div>
@@ -68,10 +51,7 @@
           </td>
           <% end %>
         </tr>
-        <% end %>
 
-
-        <% if Random.rand(@week_period2).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -84,11 +64,7 @@
             <% @schedule_all.each do |schedule| %>
             <% if period == schedule.sdate.sdate %>
             <div class="display-schedule-wrapper"><button class="schedule-button"></button>
-              <% if user_signed_in? %>
-              <%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% else %>
-              <%= link_to schedule.subject, preview_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% end %>
+              <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
             </div>
@@ -100,9 +76,7 @@
           </td>
           <% end %>
         </tr>
-        <% end %>
 
-        <% if Random.rand(@week_period3).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -114,8 +88,8 @@
 
             <% @schedule_all.each do |schedule| %>
             <% if period == schedule.sdate.sdate %>
-            <div class="display-schedule-wrapper"><button
-                class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
             </div>
@@ -127,9 +101,7 @@
           </td>
           <% end %>
         </tr>
-        <% end %>
 
-        <% if Random.rand(@week_period4).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -142,11 +114,7 @@
             <% @schedule_all.each do |schedule| %>
             <% if period == schedule.sdate.sdate %>
             <div class="display-schedule-wrapper"><button class="schedule-button"></button>
-              <% if user_signed_in? %>
-              <%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% else %>
-              <%= link_to schedule.subject, preview_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% end %>
+              <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
             </div>
@@ -158,8 +126,6 @@
           </td>
           <% end %>
         </tr>
-        <% end %>
-
 
         <% if (@last_day4 + 1).month == @next_month %>
         <tr>
@@ -174,11 +140,7 @@
             <% @schedule_all.each do |schedule| %>
             <% if period == schedule.sdate.sdate %>
             <div class="display-schedule-wrapper"><button class="schedule-button"></button>
-              <% if user_signed_in? %>
-              <%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% else %>
-              <%= link_to schedule.subject, preview_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% end %>
+              <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
             </div>
@@ -205,11 +167,7 @@
             <% @schedule_all.each do |schedule| %>
             <% if period == schedule.sdate.sdate %>
             <div class="display-schedule-wrapper"><button class="schedule-button"></button>
-              <% if user_signed_in? %>
-              <%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% else %>
-              <%= link_to schedule.subject, preview_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
-              <% end %>
+              <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
             </div>
