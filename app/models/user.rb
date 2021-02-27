@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :boards
   has_one :schedule
-  has_many :checks
- 
+  has_many :user_checks
+  has_many :checks, through: :user_checks
+
 end

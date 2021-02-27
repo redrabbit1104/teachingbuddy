@@ -1,7 +1,6 @@
 <div class="schedule_title">
   <h1>Schedule Board</h1>
 </div>
-
 <% if user_signed_in? %>
 <div>Checked Schedule</div>
 <% @checks_all.each do |display_checked| %>
@@ -114,8 +113,12 @@
 
             <% @schedule_all.each do |schedule| %>
             <% if period == schedule.sdate.sdate %>
-            <div class="display-schedule-wrapper"><button
-                class="schedule-button"></button><%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <% if user_signed_in? %>
+              <%= link_to schedule.subject, schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
+              <% else %>
+              <%= link_to schedule.subject, preview_schedule_path(schedule.id), target: "_new",class: "display-schedule",method: :get %>
+              <% end %>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
             </div>

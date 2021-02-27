@@ -66,6 +66,18 @@ ActiveRecord::Schema.define(version: 2021_02_11_145731) do
     t.index ["user_id"], name: "index_checks_on_user_id"
   end
 
+  create_table "confirms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.boolean "check"
+    t.bigint "user_id"
+    t.bigint "admin_id"
+    t.bigint "schedule_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_confirms_on_admin_id"
+    t.index ["schedule_id"], name: "index_confirms_on_schedule_id"
+    t.index ["user_id"], name: "index_confirms_on_user_id"
+  end
+
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "subject"
     t.time "start_time"
@@ -101,5 +113,8 @@ ActiveRecord::Schema.define(version: 2021_02_11_145731) do
   add_foreign_key "boards", "users"
   add_foreign_key "checks", "schedules"
   add_foreign_key "checks", "users"
+  add_foreign_key "confirms", "admins"
+  add_foreign_key "confirms", "schedules"
+  add_foreign_key "confirms", "users"
   add_foreign_key "schedules", "sdates"
 end

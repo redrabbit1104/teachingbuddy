@@ -4,14 +4,19 @@ Rails.application.routes.draw do
   resources :boards
   resources :schedules do
     resources :checks, only: [:create, :edit, :update, :index]
+    resources :adminchecks, only: [:create, :edit, :update, :index]
     member do
       get 'preview'
-      post 'preview'
+      post '/users/:user_id', to: 'confirms#switch'
+      patch '/users/:user_id', to: 'confirms#switch'
       get 'next_preview'
       post 'next_preview'
     end
   end
-   
+  resources :schedules do
+    resources :adminchecks, only: [:create, :edit, :update, :index, :show]
+  end
+
   resources :nextschedules
   resources :confirmedschedules
  

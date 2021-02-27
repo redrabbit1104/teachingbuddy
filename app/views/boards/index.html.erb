@@ -4,11 +4,11 @@
 
 <div class="date_today">
     <%# 後で曜日の色を土、日の場合は変える処理をする %>
-        <%= @this_year %>年
-            <%= @this_month %>月
-                <%= @this_day %>日 (<span class="wday">
-                        <%= @this_wday%>
-                    </span>)
+    <%= @this_year %>年
+    <%= @this_month %>月
+    <%= @this_day %>日 (<span class="wday">
+        <%= @this_wday%>
+    </span>)
 </div>
 
 <table class="table_wrapper" border="1" id="targetTable">
@@ -23,48 +23,48 @@
     </thead>
     <tbody>
         <% @boards.each do |board| %>
-            <tr>
-                <td>
-                    <%= image_tag(board.user.avatar.variant(resize: '30x30' )) %>
-                        <%= board.user.user_name %>
-                </td>
-                <td>
-                    <%= board.created_at.strftime('%Y年%m月%d日') %>
-                </td>
-                <td>
-                    <%= board.post %>
-                </td>
-                <td>
-                    <%= link_to '修正' , edit_board_path(board.id), method: :get, id:'edit_submit' %>
-                </td>
+        <tr>
+            <td>
+                <%= image_tag(board.user.avatar.variant(resize: '30x30' )) %>
+                <%= board.user.user_name %>
+            </td>
+            <td>
+                <%= board.created_at.strftime('%Y年%m月%d日') %>
+            </td>
+            <td>
+                <%= board.post %>
+            </td>
+            <td>
+                <%= link_to '修正' , edit_board_path(board.id), method: :get, id:'edit_submit' %>
+            </td>
 
-                <td>
-                    <%= link_to '削除' , board_path(board.id), method: :delete, id:'edit_delete2' %>
-                </td>
-            </tr>
+            <td>
+                <%= link_to '削除' , board_path(board.id), method: :delete, id:'edit_delete2' %>
+            </td>
+        </tr>
 
-            <% end %>
+        <% end %>
 
-                <tr id="list">
-                </tr>
+        <tr id="list">
+        </tr>
 
     </tbody>
 </table>
 <%=paginate @boards%>
 
 
-    <% if user_signed_in? %>
-        <section id="comment">
-            <div class="comment_wrapper">
-                <h1>Leave a comment</h1>
-            </div>
-            <%# request.path_infoで現在のパス情報を取得、@board.idにはset_boardメソッドで定義した@boardのid情報が入る %>
-                <%=form_with url: "/boards" , method: :post, id: "form" do |form| %>
-                    <%= form.text_field :post, id: "post" , placeholder:"コメントを入力してください",maxlength:"46",autofocus: true
+<% if user_signed_in? %>
+<section id="comment">
+    <div class="comment_wrapper">
+        <h1>Leave a comment</h1>
+    </div>
+    <%# request.path_infoで現在のパス情報を取得、@board.idにはset_boardメソッドで定義した@boardのid情報が入る %>
+    <%=form_with url: "/boards" , method: :post, id: "form" do |form| %>
+    <%= form.text_field :post, id: "post" , placeholder:"コメントを入力してください",maxlength:"46",autofocus: true
                         %>
-                        <%= form.submit ' 投稿する' , id: "submit" %>
-                            <% end %>
-                                <%= link_to '更新する' ,root_path,id:"refresh" %>
-        </section>
+    <%= form.submit ' 投稿する' , id: "submit" %>
+    <% end %>
+    <%= link_to '更新する' ,root_path,id:"refresh" %>
+</section>
 
-        <% end %>
+<% end %>
