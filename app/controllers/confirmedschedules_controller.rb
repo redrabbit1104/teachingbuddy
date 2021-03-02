@@ -4,6 +4,12 @@ class ConfirmedschedulesController < ApplicationController
 def index
   @sdate_all = Sdate.all
   @schedule_all = Schedule.all
+  # @confirm = Confirm.where(check: 1)
+  # query = "SELECT `confirms`.`schedule_id`,`confirms`.`user_id` FROM `confirms` WHERE `confirms`.`check` = TRUE"
+  @confirm = Confirm.all
+  query = "SELECT DISTINCT `confirms`.`user_id` FROM `confirms` WHERE `confirms`.`check` = TRUE"
+  @users = User.find_by_sql(query)
+
   date_today
 end
 
@@ -69,7 +75,7 @@ def date_next_today
 
   @last_day6 = (@last_day5 + (7-@last_day5.wday))
   @week_period6 = ((@last_day5+1)..@last_day6)
- 
+
   end
 
 end

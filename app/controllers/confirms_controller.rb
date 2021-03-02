@@ -6,7 +6,7 @@ class ConfirmsController < ApplicationController
       if Confirm.where(user_id:params[:user_id], schedule_id:params[:id]).blank?
       @switch = "post"
       Confirm.create(confirms_params)
-      redirect_to  preview_schedule_path
+      redirect_to preview_schedule_path
       else
       #confirmテーブルにユーザーidが存在する場合はcheckの更新を行う
       @switch = "patch"

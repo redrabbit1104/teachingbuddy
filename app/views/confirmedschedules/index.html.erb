@@ -42,16 +42,12 @@
             <div class="display-schedule-wrapper"><button class="schedule-button"></button>
               <div class="display-schedule"><%= schedule.subject %></div>
             </div>
-            <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
-            </div>
-            <% end %>
-            <% end %>
-            <% end %>
-            <% end %>
-          </td>
-          <% end %>
-        </tr>
-
+            <div class="specify-schedule">
+              <%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %><br>
+              <%= @confirm.find_by(schedule_id: schedule.id).user_id %>
+              <%= User.find(@users[1].user_id).last_name %>
+            </div> <% end %> <% end %> <% end %> <% end %>
+          </td> <% end %> </tr>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -127,7 +123,7 @@
           <% end %>
         </tr>
 
-        <% if (@last_day4 + 1).month == @next_month %>
+        <% if (@last_day4 + 1).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -154,7 +150,7 @@
         </tr>
         <% end %>
 
-        <% if (@last_day5 + 1).month == @next_month %>
+        <% if (@last_day5 + 1).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
