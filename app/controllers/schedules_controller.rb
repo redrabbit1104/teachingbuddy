@@ -74,20 +74,6 @@ def set_check
   end
 end
 
-def admin_set_check
-  #showの段階ではparams[:id]はshcedule_id値。現在のユーザーidがcheckテーブルのuser_idと同じであれば更新処理のためのテーブル情報を渡す。
-    # if admin_user.id == AdminCheck.where(schedule_id: params[:id], admin_id: current_admin.id).pluck(:admin_id)[0]
-    #   @admin_set_check = AdminCheck.find_by(params[:id])
-  #現在のユーザーidがcheckテーブルに存在しなければ、新規エントリとして空の容器を用意。
-    # else
-      @admin_set_check = AdminCheck.new
-    # end
-end
-
-def admin_check_params
-  params.require(:admincheck).permit(:check).merge(admin_id: current_admin.id, schedule_id: params[:id])
-end
-
 def set_schedule
   @set_schedule = Schedule.find(params[:id])
 end

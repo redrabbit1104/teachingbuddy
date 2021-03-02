@@ -32,9 +32,8 @@
 <%= link_to '戻る' ,nextschedules_path,id:"back" %>
 
 <div>Checked Teachers</div>
-<%# each_with_indexを利用。image_tagのindexで各ユーザーのavatarを表示。また、ユーザーごとのデーターchecked_schedule_userを表示させる %>
-<% @get_checked_schedule_users.each_with_index do |checked_schedule_user, i| %>
-<%= image_tag(Check.where(schedule_id: params[:id], check: 1)[i].user.avatar.variant(resize: '30x30' )) %>
+<% @get_checked_schedule_users.each do |checked_schedule_user| %>
+<%= image_tag(User.find(checked_schedule_user).avatar.variant(resize: '30x30' ))%>
 <%= User.find(checked_schedule_user).last_name %>
 <%= User.find(checked_schedule_user).first_name %>&nbsp;&nbsp;先生<br>
 <% end %>

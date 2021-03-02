@@ -44,10 +44,27 @@
             </div>
             <div class="specify-schedule">
               <%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %><br>
-              <%= @confirm.find_by(schedule_id: schedule.id).user_id %>
-              <%= User.find(@users[1].user_id).last_name %>
-            </div> <% end %> <% end %> <% end %> <% end %>
-          </td> <% end %> </tr>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
+            </div>
+            <% end %>
+            <% end %>
+
+            <% end %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -63,6 +80,17 @@
               <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
             </div>
             <% end %>
             <% end %>
@@ -88,6 +116,17 @@
               <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
             </div>
             <% end %>
             <% end %>
@@ -113,6 +152,17 @@
               <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
             </div>
             <% end %>
             <% end %>
@@ -139,6 +189,17 @@
               <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
             </div>
             <% end %>
             <% end %>
@@ -166,6 +227,17 @@
               <div class="display-schedule"><%= schedule.subject %></div>
             </div>
             <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
             </div>
             <% end %>
             <% end %>
