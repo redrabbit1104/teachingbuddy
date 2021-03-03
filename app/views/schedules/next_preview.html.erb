@@ -2,6 +2,26 @@
   <h1>Next_Preview Schedule</h1>
 </div>
 
-<%= link_to '戻る' ,nextschedules_path,id:"back" %>
+エントリーした先生
+<% @get_checked_schedule_users.each do |checked_schedule_user| %>
+<%= image_tag(User.find(checked_schedule_user).avatar.variant(resize: '30x30' ))%>
+<%= User.find(checked_schedule_user).last_name %>
+<%= User.find(checked_schedule_user).first_name %>&nbsp;&nbsp;先生<br>
 
-<%# <%= Check.find(45).schedule.subject%>
+<%= form_with(method: :@next_switch, url:"/schedules/#{params[:id]}/next_users/#{User.find(checked_schedule_user).id}", local:true) do |f| %>
+<div class="edit_delete_wrapper">
+  <%= f.check_box :check, :as => :boolean,checked:true %>
+  <%= f.submit "Entry" ,class:"schedule-input",id:"submit-btn"%>
+</div>
+<% end %>
+
+<% end %>
+
+承認した先生
+<% @get_confirmed_schedule_users.each do |confirmed_schedule_user| %>
+<%= image_tag(User.find(confirmed_schedule_user).avatar.variant(resize: '30x30' ))%>
+<%= User.find(confirmed_schedule_user).last_name %>
+<%= User.find(confirmed_schedule_user).first_name %>&nbsp;&nbsp;先生<br>
+<% end %>
+
+<%= link_to '戻る' ,nextschedules_path,id:"back" %>

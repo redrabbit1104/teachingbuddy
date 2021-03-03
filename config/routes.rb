@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       post '/users/:user_id', to: 'confirms#switch'
       patch '/users/:user_id', to: 'confirms#switch'
       get 'next_preview'
-      post 'next_preview'
+      post '/next_users/:user_id', to: 'confirms#next_switch'
+      patch '/next_users/:user_id', to: 'confirms#next_switch'
     end
   end
   resources :schedules do

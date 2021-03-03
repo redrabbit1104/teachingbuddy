@@ -36,6 +36,13 @@ end
 def preview
   @schedule = Schedule.find(params[:id])
   get_check_schedule_user
+  get_confirmed_schedule_user
+end
+
+def next_preview
+  @schedule = Schedule.find(params[:id])
+  get_check_schedule_user
+  get_confirmed_schedule_user
 end
 
 def create
@@ -53,6 +60,10 @@ private
 #スケジュールをチェックしたユーザーidを取得
 def get_check_schedule_user
   @get_checked_schedule_users = Check.where(schedule_id: params[:id], check: 1).pluck(:user_id)
+end 
+
+def get_confirmed_schedule_user
+  @get_confirmed_schedule_users = Confirm.where(schedule_id: params[:id], check: 1).pluck(:user_id)
 end 
 
 def schedule_params

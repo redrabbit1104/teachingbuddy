@@ -19,10 +19,10 @@
 <% end %>
 
 承認した先生
-<% @get_checked_schedule_users.each do |checked_schedule_user| %>
-<%= image_tag(User.find(checked_schedule_user).avatar.variant(resize: '30x30' ))%>
-<%= User.find(checked_schedule_user).last_name %>
-<%= User.find(checked_schedule_user).first_name %>&nbsp;&nbsp;先生<br>
+<% @get_confirmed_schedule_users.each do |confirmed_schedule_user| %>
+<%= image_tag(User.find(confirmed_schedule_user).avatar.variant(resize: '30x30' ))%>
+<%= User.find(confirmed_schedule_user).last_name %>
+<%= User.find(confirmed_schedule_user).first_name %>&nbsp;&nbsp;先生<br>
 <% end %>
 
 <%= link_to '戻る' ,schedules_path,id:"back" %>
