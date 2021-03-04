@@ -4,7 +4,8 @@ class ChecksController < ApplicationController
 
   def create
       check = Check.create(check_params)
-      redirect_to schedules_path
+      #処理後は元の画面に戻る
+      redirect_back fallback_location: { action: "show", id: params[:id] }
   end
 
   def update
@@ -12,8 +13,14 @@ class ChecksController < ApplicationController
     if current_user.id == Check.where(schedule_id: params[:schedule_id], user_id: current_user.id).pluck(:user_id)[0]
     #schedule_idとuser_idをチェックテーブルから探し、データを更新する処理。
     Check.where(schedule_id: params[:schedule_id], user_id: current_user.id).update(check_update_params)
+      #更新時にCheckテーブルがチェック０を入れたまま更新した場合Confirmテーブル及びCheckテーブルから該当するデータを削除
+      if Check.where(schedule_id: params[:schedule_id], user_id: current_user.id).pluck(:check)[0] == false
+        Check.find(Check.where(schedule_id: params[:schedule_id], user_id: current_user.id).pluck(:id)[0]).destroy
+        Confirm.find(Confirm.where(schedule_id: params[:schedule_id], user_id: current_user.id).pluck(:id)[0]).destroy
+      end
     end
-    redirect_to schedules_path
+    #処理後は元の画面に戻る
+    redirect_back fallback_location: { action: "show", id: params[:id] }
   end
 
   private
