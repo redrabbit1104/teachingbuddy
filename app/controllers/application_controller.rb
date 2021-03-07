@@ -7,9 +7,10 @@ class ApplicationController < ActionController::Base
     where.not(id: user)
   end
 
-  def index
-    @users = User.all_except(current_user).piginate
-  end
+  # def index
+  #   # @users = User.all_except(current_user).paginate
+  #   @users = User.all
+  # end
 
   private
   def configure_permitted_parameters

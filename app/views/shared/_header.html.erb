@@ -1,24 +1,30 @@
 <div class="header_wrapper">
   <div class="header_grid">
-     <div id="school_name">
-       <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
-     </div>
-     <div class="header_nav">
-       <div class="head_nav">
+    <div id="school_name">
+      <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
+    </div>
+    <div class="header_nav">
+      <div class="head_nav">
         <%= link_to 'トップページ', "/" %>
-       </div>
-       <div class="head_nav">
+      </div>
+      <div class="head_nav">
         <%= link_to '授業一覧', schedules_path %>
-       </div>
-       <div class="head_nav">
-         <%= link_to 'Message Board', "/" %>
-       </div>
-       <div class="head_nav">
+      </div>
+      <div class="head_nav">
+        <%= link_to 'Message Board', "/" %>
+      </div>
+      <% if user_signed_in? %>
+      <div class="head_nav">
+        <%= link_to 'Sign Out' , destroy_user_session_path, method: :delete %>
+      </div>
+      <% else %>
+      <div class="head_nav">
         <%= link_to 'ログイン', new_user_session_path %>
-       </div>
-       <div class="head_nav">
+      </div>
+      <% end %>
+      <div class="head_nav">
         <%= link_to '新規登録', registrations_users_path %>
-       </div>
-     </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -9,7 +9,7 @@
 <%= display_checked.schedule.end_time.to_s(:time) %>
 &nbsp;&nbsp;
 <button class="schedule-button"></button>
-<%= link_to display_checked.schedule.subject, schedule_path(display_checked.schedule.id), target: "_new",class: "display-schedule",method: :get %>
+<%= link_to display_checked.schedule.subject, schedule_path(display_checked.schedule.id), class: "display-schedule",method: :get %>
 <br>
 <% end %>
 <%=paginate @checks_all%>

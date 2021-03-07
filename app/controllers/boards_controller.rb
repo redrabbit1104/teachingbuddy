@@ -6,6 +6,7 @@ class BoardsController < ApplicationController
     #現在ログイン中のidを除いたユーザー情報を取得
     users = User.where.not(id: current_user)
     @users = users.page(params[:users_page]).per(6)
+    # @rooms = Room.all
     date_today
     board_page
   end

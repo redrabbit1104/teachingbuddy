@@ -1,13 +1,14 @@
 <div class="members">
   &nbsp;&nbsp;Members
   <% if user_signed_in? %>
-  	<% @users.each do |user| %>
-     <div class="member_avatar">
-       <%= link_to image_tag(user.avatar.variant(resize: '80x80'), class: 'member_image'),edit_user_registration_path(user.id), method: :get if user.avatar.attached? %>
-	     <%# <%= image_tag user.avatar.variant(resize: '80x80'), class: 'member_image' if user.avatar.attached?%>
-       
-      </div>
-    <% end %>
-    <%= paginate @users, param_name: 'users_page' %>
+  <% @users.each do |user| %>
+  <div class="member_avatar">
+    <%# <%= link_to image_tag(user.avatar.variant(resize: '80x80'),target: "_new", class: 'member_image'),room_path(user.id), method: :get if user.avatar.attached? %>
+    <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_room_path(user.id) if user.avatar.attached? %>
+    <%# <%= image_tag user.avatar.variant(resize: '80x80'), class: 'member_image' if user.avatar.attached?%>
+
+  </div>
+  <% end %>
+  <%= paginate @users, param_name: 'users_page' %>
   <% end %>
 </div>

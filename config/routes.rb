@@ -2,6 +2,16 @@ Rails.application.routes.draw do
   root to: "boards#index" 
   resources :sdates
   resources :boards
+  resources :rooms, only: [:new, :create, :destroy] do
+    resources :messages, only: [:index, :create, :destroy]
+    # member do
+    #   post '/', to: 'rooms#add', as: 'add'
+    #   get '/messages/', to: 'messages#index', as: 'message'
+    # end
+  end
+  # get 'rooms/:target_id', to: 'rooms#new', as: 'new_room' 
+  # get 'rooms/:target_id/messages/', to 'messages#index'
+  
   resources :schedules do
     resources :checks, only: [:create,:update]
     member do

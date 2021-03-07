@@ -1,0 +1,9 @@
+チャットルーム新規作成画面
+<br>
+<%# <%= image_tag(current_user.avatar.variant(resize: '80x80')) %><br> %>
+<%# <%= image_tag(@target_user.avatar.variant(resize: '80x80')) %><br> %>
+<%= form_with(method: :post, url:add_room_path, local:true) do |f| %>
+<%# nameにuser_ids[]という入れ物を用意し、隠しファイルを送信する。現在ログイン中のユーザーとパラメーターのユーザー、つまり、クリック対象のユーザーidを送る%>
+<input name="user_ids[]" type="hidden" value=<%= current_user.id %>>
+<input name="user_ids[]" type="hidden" value=<%= "#{params[:id]}" %>>
+<%= f.submit class: 'chat-room-form__action-btn'%> <% end %> チャットする

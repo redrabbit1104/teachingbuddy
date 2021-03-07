@@ -17,6 +17,7 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> 'reload' %>
     <%= javascript_pack_tag 'application' %>
+    <%# <%= javascript_include_tag 'application' %>
 </head>
 
 <body>
@@ -126,6 +127,7 @@
                 </div>
             </div>
             <%= render "shared/members" %>
+
         </div>
         <div class="main_contents">
             <%= yield %>

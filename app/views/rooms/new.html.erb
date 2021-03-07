@@ -1,0 +1,21 @@
+チャットルーム新規作成画面
+<br>
+
+<%=form_with model: @room, local: true do |f|%>
+<%# <%= @target_room.where(user_id: params[:format]).room_id%>
+<input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+<input name="room[user_ids][]" type="hidden" value=<%= params[:format]%>>
+<%# <% @clength.times do |n|%>
+<%# <% unless @current_user_rooms.include?(@target_user_rooms[n])%>
+<%= f.submit class: 'chat-room-form__action-btn' %> <% end %>
+<%# <% end %>
+<%# <% end %>
+
+<% @length.times do |n|%>
+<%#= roomテーブルのuser_idがチャット相手と同じものをセレクト%>
+<% if @target_room[n].user_id == params[:format].to_i%>
+<%# 上記のもののroom_idを持つuser_idの中で現在接続中のuser_idがあるものをセレクト。link_toのroom_id引数に該当するroom_idを渡す%>
+<%= link_to "チャット", controller: "messages", action: "index", room_id:@target_room[n].room_id if @target_room.where(room_id:@target_room[n].room_id).pluck(:user_id).include?(current_user.id)%>
+<%# <%= button_to "削除",room_path(id:@target_room[n].room_id),method: :delete if @target_room.where(room_id:@target_room[n].room_id).pluck(:user_id).include?(current_user.id)%>
+<% end %>
+<% end %>
