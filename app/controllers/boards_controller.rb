@@ -6,7 +6,10 @@ class BoardsController < ApplicationController
     #現在ログイン中のidを除いたユーザー情報を取得
     users = User.where.not(id: current_user)
     @users = users.page(params[:users_page]).per(6)
-    # @rooms = Room.all
+    if user_signed_in?
+    #userで接続した場合、adminとのチャットに表示されるリストのリンクに必要なパラメーター
+    @adminrooms = AdminRoom.where(user_id: current_user.id)
+    end
     date_today
     board_page
   end

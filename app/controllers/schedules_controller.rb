@@ -46,6 +46,7 @@ def next_preview
 end
 
 def create
+  binding.pry
   @sdate_schedule = SdateSchedule.new(schedule_params)
   @sdate_schedule.save
   redirect_to new_schedule_path

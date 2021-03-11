@@ -1,0 +1,158 @@
+.board_title {
+  text-align: center;
+  color: #f1774e;
+  font-size: 30px;
+  border-bottom: solid 2px;
+  width: 300px;
+  margin: 30px auto 3px auto;
+}
+
+.date_today {
+  margin: 40px auto 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.table_wrapper {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.table_wrapper tr {
+  border: 1px solid;
+  text-align: center;
+}
+
+.table_wrapper tr th {
+  border: 1px solid;
+  text-align: center;
+}
+
+.table_wrapper tr th #board_name {
+  width: 30px;
+}
+
+.table_wrapper tr td {
+  border: 1px solid;
+}
+
+.table_wrapper tr td:first-child {
+  width: 130px;
+  height: 35px;
+  padding-top: 6px;
+}
+
+.table_wrapper tr td:nth-child(2) {
+  width: 130px;
+  padding-top: 7px;
+}
+
+.table_wrapper tr td:nth-child(3) {
+  padding-top: 7px;
+}
+
+.table_wrapper tr td:nth-child(4) {
+  width: 60px;
+  padding-top: 7px;
+}
+
+.table_wrapper tr td:nth-child(5) {
+  width: 60px;
+  padding-top: 7px;
+}
+
+#comment {
+  width: 500px;
+  text-align: center;
+  margin: 10px auto 30px;
+  padding: 0 auto;
+  clear: both;
+}
+
+#comment .comment_wrapper {
+  margin-bottom: 10px;
+}
+
+#comment .comment_wrapper h1 {
+  width: 150px;
+  margin: 0 auto;
+  border-bottom: 1px solid;
+}
+
+#comment #form {
+  height: 20px;
+  float: left;
+}
+
+#comment #form #post {
+  border: 1px solid;
+  width: 300px;
+  text-align: left;
+  padding: 5px 8px;
+}
+
+#comment #form #post:focus {
+  background-color: #eee;
+}
+
+#comment #form #submit {
+  margin-left: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  transition: color 1s;
+  box-shadow: 2px 2px 3px;
+}
+
+#comment #form #submit:hover {
+  background-color: black;
+  color: white;
+}
+
+#comment #refresh {
+  height: 30px;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 5px;
+  transition: color 1s;
+  box-shadow: 2px 2px 3px;
+}
+
+#comment #refresh:hover {
+  background-color: black;
+  color: white;
+}
+
+#list {
+  display: none;
+}
+
+#edit_post {
+  padding-top: 8px;
+}
+
+#edit_post:focus {
+  background-color: #eee;
+}
+
+#edit_submit {
+  padding: 6px 10px 0px 10px;
+}
+
+#edit_submit:hover {
+  opacity: 0.5;
+}
+
+#edit_delete {
+  display: inline-block;
+  padding: 6px 10px 0px 10px;
+}
+
+#edit_delete:hover {
+  opacity: 0.5;
+}
+
+#edit_delete2:hover {
+  opacity: 0.5;
+}

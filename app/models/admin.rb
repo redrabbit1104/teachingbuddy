@@ -4,9 +4,10 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :room_admins, dependent: :destroy
-  has_many :rooms, through: :room_admins
-  has_many :messages, dependent: :destroy
+  # has_many :room_admins, dependent: :destroy
+  # has_many :admin_rooms, through: :room_admins
+  has_many :admin_rooms
+  has_many :admin_messages, dependent: :destroy
   has_many :schedule_admins
   has_many :schedules, through: :schedule_admins
   has_many :boards

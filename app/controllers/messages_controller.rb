@@ -1,16 +1,16 @@
 class MessagesController < ApplicationController
-  layout false
+
   def index
-    # users = User.where.not(id: current_user)
-    # @users = users.page(params[:users_page]).per(6)
+    users = User.where.not(id: current_user)
+    @users = users.page(params[:users_page]).per(6)
     @message = Message.new
     @room = Room.find(params[:room_id])
     @messages = @room.messages.includes(:user)
   end
 
   def create
-    @room = Room.find(params[:room_id])
     @message = @room.messages.new(message_params)
+    @room = Room.find(params[:room_id])
     if @message.save
       redirect_to room_messages_path(@room)
     else
@@ -19,12 +19,12 @@ class MessagesController < ApplicationController
     end
   end
 
-  def destroy
-    @room = Room.find(params[:id])
-    # @room = Room.find(params[:room_id])
-    @room.destroy
-    redirect_to root_path
-  end
+  # def destroy
+  #   @room = Room.find(params[:id])
+  #   # @room = Room.find(params[:room_id])
+  #   @room.destroy
+  #   redirect_to root_path
+  # end
 
 
   private

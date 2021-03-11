@@ -1,11 +1,11 @@
 class RoomsController < ApplicationController
-  layout false
 
   def index
   end
   
   def new
-
+    users = User.where.not(id: current_user)
+    @users = users.page(params[:users_page]).per(6)
     @room = Room.new
     @target_room = RoomUser.all
     @length= @target_room.length

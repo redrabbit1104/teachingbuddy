@@ -9,9 +9,12 @@ Rails.application.routes.draw do
     #   get '/messages/', to: 'messages#index', as: 'message'
     # end
   end
+  resources :adminrooms, only: [:new, :create, :destroy] do
+    resources :adminmessages, only: [:index, :create, :destroy]
   # get 'rooms/:target_id', to: 'rooms#new', as: 'new_room' 
   # get 'rooms/:target_id/messages/', to 'messages#index'
-  
+  end
+
   resources :schedules do
     resources :checks, only: [:create,:update]
     member do

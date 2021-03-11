@@ -8,6 +8,28 @@
     <%# <%= image_tag user.avatar.variant(resize: '80x80'), class: 'member_image' if user.avatar.attached?%>
 
   </div>
+
+ 
+  <% end %>
+   <div class="member_avatar">
+    &nbsp;&nbsp;Adminとの会話
+    <% @adminrooms.each do |adminroom| %>
+    <%= link_to adminroom.id,  adminroom_adminmessages_path(adminroom.id) %>
+    <% end%>
+  </div>
+  <%= paginate @users, param_name: 'users_page' %>
+  
+  <% end %>
+
+  <% if admin_signed_in? %>
+  <% @users.each do |user| %>
+  <div class="member_avatar">
+    <%# <%= link_to image_tag(user.avatar.variant(resize: '80x80'),target: "_new", class: 'member_image'),room_path(user.id), method: :get if user.avatar.attached? %>
+    <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_adminroom_path(user.id) if user.avatar.attached? %>
+    <%# <%= image_tag user.avatar.variant(resize: '80x80'), class: 'member_image' if user.avatar.attached?%>
+
+  </div>
+
   <% end %>
   <%= paginate @users, param_name: 'users_page' %>
   <% end %>
