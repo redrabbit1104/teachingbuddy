@@ -2,7 +2,7 @@ adminチャットルーム新規作成画面
 <br>
 
 <%=form_with model: @admin_room, url: adminrooms_path, local: true do |f|%>
-<input name="admin_room[admin_id]" type="hidden" value=<%= current_admin.id %>>
+<input name="admin_room[admin_id]" type="hidden" value=<%= 1 %>>
 <input name="admin_room[user_id]" type="hidden" value=<%= params[:format].to_i%>>
 <input name="admin_room[target_id]" type="hidden" value=<%= params[:format].to_i%>>
 <%= f.submit class: 'chat-room-form__action-btn' %> <% end %>

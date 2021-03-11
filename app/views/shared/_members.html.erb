@@ -12,7 +12,7 @@
  
   <% end %>
    <div class="member_avatar">
-    &nbsp;&nbsp;Adminとの会話
+    &nbsp;&nbsp;<%= link_to 'Adminとの会話',new_adminroom_path(current_user.id) %>
     <% @adminrooms.each do |adminroom| %>
     <%= link_to adminroom.id,  adminroom_adminmessages_path(adminroom.id) %>
     <% end%>

@@ -2,6 +2,7 @@
   <div class="upper-message">
     <div class="message-user">
       <!-- 投稿したユーザー名情報を出力する -->
+      <%= image_tag(message.user.avatar.variant(resize: '80x80'),class: 'member_image') %>
       <%= message.user.last_name %>
     </div>
     <div class="message-date">

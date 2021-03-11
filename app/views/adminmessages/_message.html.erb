@@ -1,16 +1,16 @@
 <div class="message">
   <div class="upper-message">
-    <% if user_signed_in? %>
+  
     <div class="message-user">
       <!-- 投稿したユーザー名情報を出力する -->
+        <% if message.flag == 1 %>
+         <%= message.admin.admin_last_name %>
+        <% else %>
+      <%= image_tag(message.user.avatar.variant(resize: '80x80'),class: 'member_image') %>
       <%= message.user.last_name %>
+      <% end %>
     </div>
-    <% elsif admin_signed_in? %>
-    <div class="message-user">
-      <!-- 投稿したユーザー名情報を出力する -->
-      <%= message.admin.admin_last_name %>
-    </div>
-    <% end %>
+
     <div class="message-date">
       <!-- 投稿した時刻を出力する -->
       <%=l message.created_at %>

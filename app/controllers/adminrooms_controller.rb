@@ -7,7 +7,13 @@ class AdminroomsController < ApplicationController
     users = User.where.not(id: current_user)
     @users = users.page(params[:users_page]).per(6)
     @adminroom = AdminRoom.new
+    if user_signed_in?
+    @target_room = AdminRoom.all.where(user_id:current_user.id)
+    #userで接続した場合、adminとのチャットに表示されるリストのリンクに必要なパラメーター
+    @adminrooms = AdminRoom.where(user_id: current_user.id)
+    else
     @target_room = AdminRoom.all.where(user_id:params[:format])
+    end
   end
 
   def create

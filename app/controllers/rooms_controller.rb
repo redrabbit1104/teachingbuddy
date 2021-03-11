@@ -9,6 +9,11 @@ class RoomsController < ApplicationController
     @room = Room.new
     @target_room = RoomUser.all
     @length= @target_room.length
+
+    if user_signed_in?
+      #userで接続した場合、adminとのチャットに表示されるリストのリンクに必要なパラメーター
+      @adminrooms = AdminRoom.where(user_id: current_user.id)
+    end
   end
 
   def create

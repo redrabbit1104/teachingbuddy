@@ -24,7 +24,11 @@ class AdminmessagesController < ApplicationController
   private
 
   def admin_message_params
+    if user_signed_in?
     params.permit(:content, :image).merge(admin_id: 1,admin_room_id: params[:adminroom_id],user_id: AdminRoom.find(params[:adminroom_id]).user_id)
+    else
+      params.permit(:content, :image).merge(admin_id: 1,admin_room_id: params[:adminroom_id],user_id: AdminRoom.find(params[:adminroom_id]).user_id,flag: 1)
+    end
   end
 
 end
