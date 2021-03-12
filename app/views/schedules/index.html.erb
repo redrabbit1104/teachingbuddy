@@ -132,7 +132,7 @@
         </tr>
         <% end %>
 
-        <% if Random.rand(@week_period4).month == @this_month %>
+        <% if Random.rand(@week_period3).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -163,8 +163,7 @@
         </tr>
         <% end %>
 
-
-        <% if (@last_day4 + 1).month == @next_month %>
+        <% if (@last_day4 + 1).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">
@@ -195,7 +194,7 @@
         </tr>
         <% end %>
 
-        <% if (@last_day5 + 1).month == @next_month %>
+        <% if (@last_day5 + 1).month == @this_month %>
         <tr>
           <% 7.times do |x| %>
           <td class="schedule-row">

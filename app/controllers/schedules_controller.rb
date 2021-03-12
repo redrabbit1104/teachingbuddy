@@ -95,7 +95,7 @@ def date_today
   @wday_jan = ["月","火","水","木","金","土","日"]
   @this_year = @now.year
   @this_month = @now.month
-  
+  @next_month = @now.next_month.month
   
   @first_day = @now.beginning_of_month
   @last_day = (@first_day + (7-@first_day.wday))
